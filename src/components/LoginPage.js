@@ -10,7 +10,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const { loggedIn, error } = useSelector((state) => state.auth);
+  const { loggedIn, error } = useSelector((state) => state.login);
 
   const handleLogin = (e) => {
     e.preventDefault();
