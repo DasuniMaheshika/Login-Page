@@ -5,13 +5,13 @@ import store from '../store';
 import { Provider } from 'react-redux';
 
 describe('LoginPage', () => {
-  test('email input field should hava type password', () => {
+  test('email input field should hava type email', () => {
     render(
       <Provider store={store}>
         <LoginPage />
       </Provider>
     );
-    const emailInput = screen.getByPlaceholderText(/Email/i);
+    const emailInput = screen.getByPlaceholderText('Email');
     expect(emailInput).toBeInTheDocument();
   });
 
@@ -21,27 +21,27 @@ describe('LoginPage', () => {
         <LoginPage />
       </Provider>
     );
-    const passwordInput = screen.getByPlaceholderText(/Password/i);
+    const passwordInput = screen.getByPlaceholderText('Password');
     expect(passwordInput).toBeInTheDocument();
   });
 
-  test('email input should be empty', () => {
+  test('in beginning email input should be empty', () => {
     render(
       <Provider store={store}>
         <LoginPage />
       </Provider>
     );
-    const emailInput = screen.getByPlaceholderText(/Email/i);
+    const emailInput = screen.getByPlaceholderText('Email');
     expect(emailInput.value).toBe('');
   });
 
-  test('password input should be empty', () => {
+  test('in beginning password input should be empty', () => {
     render(
       <Provider store={store}>
         <LoginPage />
       </Provider>
     );
-    const passwordInput = screen.getByPlaceholderText(/Password/i);
+    const passwordInput = screen.getByPlaceholderText('Password');
     expect(passwordInput.value).toBe('');
   });
 
