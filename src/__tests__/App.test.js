@@ -9,6 +9,6 @@ test('render LoginPage component', () => {
       <App />
     </Provider>
   );
-  const email = screen.getByPlaceholderText(/Email/i);
+  const email = screen.getByPlaceholderText('Email');
   expect(email).toBeInTheDocument();
 });

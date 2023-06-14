@@ -44,7 +44,7 @@ const LoginPage = () => {
   return (
     <div>
       <h1>Login Page</h1>
-      <form onSubmit={handleSubmit}>
+      <form onClick={handleSubmit}>
         <div class='imgcontainer'>
           <img
             src='https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png'
