@@ -31,13 +31,13 @@ const LoginPage = () => {
   };
 
   const isValidEmail = (email) => {
-    // Validate email format (simple validation for demonstration purposes)
+    // Validate email format
     const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return validEmail.test(email);
   };
 
   const isValidPassword = (password) => {
-    // Validate password length (simple validation for demonstration purposes)
+    // Validate password length
     return password.length >= 6;
   };
 

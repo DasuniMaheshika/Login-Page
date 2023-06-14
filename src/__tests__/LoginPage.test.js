@@ -11,8 +11,8 @@ describe('LoginPage', () => {
         <LoginPage />
       </Provider>
     );
-    const email = screen.getByPlaceholderText(/Email/i);
-    expect(email).toBeInTheDocument();
+    const emailInput1 = screen.getByPlaceholderText(/Email/i);
+    expect(emailInput1).toBeInTheDocument();
   });
 
   test('password input field should hava type password', () => {
@@ -21,8 +21,8 @@ describe('LoginPage', () => {
         <LoginPage />
       </Provider>
     );
-    const password = screen.getByPlaceholderText(/Password/i);
-    expect(password).toBeInTheDocument();
+    const passwordInput1 = screen.getByPlaceholderText(/Password/i);
+    expect(passwordInput1).toBeInTheDocument();
   });
 
   test('email input should be empty', () => {
@@ -31,8 +31,8 @@ describe('LoginPage', () => {
         <LoginPage />
       </Provider>
     );
-    const usernameInputEl = screen.getByPlaceholderText(/Email/i);
-    expect(usernameInputEl.value).toBe('');
+    const emailInput2 = screen.getByPlaceholderText(/Email/i);
+    expect(emailInput2.value).toBe('');
   });
 
   test('password input should be empty', () => {
@@ -41,8 +41,8 @@ describe('LoginPage', () => {
         <LoginPage />
       </Provider>
     );
-    const passwordInputEl = screen.getByPlaceholderText(/Password/i);
-    expect(passwordInputEl.value).toBe('');
+    const passwordInput2 = screen.getByPlaceholderText(/Password/i);
+    expect(passwordInput2.value).toBe('');
   });
 
   test('email input field should accept email', () => {
@@ -51,9 +51,20 @@ describe('LoginPage', () => {
         <LoginPage />
       </Provider>
     );
-    const email = screen.getByPlaceholderText('Email');
-    userEvent.type(email, 'dasuni.com');
-    expect(email.value).not.toMatch('dasu.maheshika@gmail.com');
+    const emailInput3 = screen.getByPlaceholderText('Email');
+    userEvent.type(emailInput3, 'dasuni.com');
+    expect(emailInput3.value).not.toMatch('dasu.maheshika@gmail.com');
+  });
+
+  test('password should be greater than 6', () => {
+    render(
+      <Provider store={store}>
+        <LoginPage />
+      </Provider>
+    );
+    const passwordInput3 = screen.getByPlaceholderText('Password');
+    userEvent.type(passwordInput3, 'dasu123');
+    expect(passwordInput3.value.length).toBeGreaterThan(6);
   });
 
   test('render the login page with 1 button', async () => {
@@ -75,4 +86,21 @@ describe('LoginPage', () => {
     const image = screen.getByAltText('Avatar');
     expect(image).toBeInTheDocument();
   });
+
+  // test('should display message if login success', () => {
+  //   render(
+  //     <Provider store={store}>
+  //       <LoginPage />
+  //     </Provider>
+  //   );
+  //   const emailInput4 = screen.getByPlaceholderText('Email');
+  //   const passwordInput4 = screen.getByPlaceholderText('Password');
+  //   const button1 = screen.getAllByRole('button');
+
+  //   userEvent.type(emailInput4, 'dasu.maheshika@gmail.com');
+  //   userEvent.type(passwordInput4, '');
+  //   userEvent.click(button1);
+  //   const error1 = screen.getByText('Please fill in all fields.');
+  //   expect(error1).toBeInTheDocument();
+  // });
 });
