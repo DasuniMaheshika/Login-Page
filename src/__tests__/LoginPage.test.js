@@ -24,21 +24,33 @@ describe('LoginPage', () => {
     expect(password).toBeInTheDocument();
   });
 
-  //   test('render the login page with 1 button', async () => {
-  //     render(<LoginPage />);
-  //     const buttonCount = await screen.findAllByRole('button');
-  //     expect(buttonCount).toHaveLength(1);
-  //   });
+  test('render the login page with 1 button', async () => {
+    render(
+      <Provider store={store}>
+        <LoginPage />
+      </Provider>
+    );
+    const buttonCount = await screen.findAllByRole('button');
+    expect(buttonCount).toHaveLength(1);
+  });
 
   // test('The button is disabled', () => {
-  //   render(<LoginPage />);
+  //   render(
+  //     <Provider store={store}>
+  //       <LoginPage />
+  //     </Provider>
+  //   );
   //   const buttonEl = screen.getByRole('button');
   //   expect(buttonEl).toBeDisabled();
   // });
 
-  // test('renders image in App component', () => {
-  //   render(<LoginPage />);
-  //   const image = screen.getByAltText('Avatar');
-  //   expect(image).toBeInTheDocument();
-  // });
+  test('renders image in App component', () => {
+    render(
+      <Provider store={store}>
+        <LoginPage />
+      </Provider>
+    );
+    const image = screen.getByAltText('Avatar');
+    expect(image).toBeInTheDocument();
+  });
 });
