@@ -103,39 +103,4 @@ describe('LoginPage', () => {
     const error1 = screen.getByText('Please fill in all fields.');
     expect(error1).toBeInTheDocument();
   });
-
-  // test('should display error message if invalid input fields', () => {
-  //   render(
-  //     <Provider store={store}>
-  //       <LoginPage />
-  //     </Provider>
-  //   );
-  //   const emailInput = screen.getByPlaceholderText('Email');
-  //   const passwordInput = screen.getByPlaceholderText('Password');
-  //   const button = screen.getByRole('button');
-
-  //   userEvent.type(emailInput, 'dasumaheshika@com');
-  //   userEvent.type(passwordInput, '123');
-  //   userEvent.click(button[0]);
-  //   const error2 = screen.getByText('Invalid email or password.');
-  //   expect(error2).toBeInTheDocument();
-  // });
-
-  // test('should display success message if empty fields', () => {
-  //   render(
-  //     <Provider store={store}>
-  //       <LoginPage />
-  //     </Provider>
-  //   );
-  //   const emailInput = screen.getByPlaceholderText('Email');
-  //   const passwordInput = screen.getByPlaceholderText('Password');
-  //   const button = screen.getAllByRole('button');
-
-  //   userEvent.type(emailInput, 'dasu.maheshika@gmail.com');
-  //   userEvent.type(passwordInput, '1234567');
-  //   userEvent.click(button[0]);
-
-  //   const success = screen.getByText('Login success!');
-  //   expect(success).toBeInTheDocument();
-  // });
 });
