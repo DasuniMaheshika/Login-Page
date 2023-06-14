@@ -42,7 +42,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
+    <div data-testid='login-component'>
       <h1>Login Page</h1>
       <form onClick={handleSubmit}>
         <div class='imgcontainer'>
