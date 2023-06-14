@@ -1,8 +1,14 @@
 import { render, screen } from '@testing-library/react';
-import App from '../App';
+import App from '../../src/App';
+import store from '../store';
+import { Provider } from 'react-redux';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('render LoginPage component', () => {
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+  const email = screen.getByPlaceholderText(/Email/i);
+  expect(email).toBeInTheDocument();
 });

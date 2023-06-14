@@ -5,6 +5,7 @@ import {
   loginFailure,
   resetError,
 } from '../actionTypes/actionTypes';
+import '../../src/index.css';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -12,7 +13,7 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const { loggedIn, error } = useSelector((state) => state.login);
 
-  const handleLogin = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     // Reset error message
@@ -43,12 +44,20 @@ const LoginPage = () => {
   return (
     <div>
       <h1>Login Page</h1>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleSubmit}>
+        <div class='imgcontainer'>
+          <img
+            src='https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png'
+            alt='Avatar'
+            class='avatar'
+          />
+        </div>
         <div>
           <label>Email:</label>
           <input
             type='email'
             value={email}
+            placeholder='Email'
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -57,6 +66,7 @@ const LoginPage = () => {
           <input
             type='password'
             value={password}
+            placeholder='Password'
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
