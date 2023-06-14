@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import LoginPage from '../components/LoginPage';
 import store from '../store';
 import { Provider } from 'react-redux';
@@ -24,6 +25,37 @@ describe('LoginPage', () => {
     expect(password).toBeInTheDocument();
   });
 
+  test('email input should be empty', () => {
+    render(
+      <Provider store={store}>
+        <LoginPage />
+      </Provider>
+    );
+    const usernameInputEl = screen.getByPlaceholderText(/Email/i);
+    expect(usernameInputEl.value).toBe('');
+  });
+
+  test('password input should be empty', () => {
+    render(
+      <Provider store={store}>
+        <LoginPage />
+      </Provider>
+    );
+    const passwordInputEl = screen.getByPlaceholderText(/Password/i);
+    expect(passwordInputEl.value).toBe('');
+  });
+
+  test('email input field should accept email', () => {
+    render(
+      <Provider store={store}>
+        <LoginPage />
+      </Provider>
+    );
+    const email = screen.getByPlaceholderText('Email');
+    userEvent.type(email, 'dasuni.com');
+    expect(email.value).not.toMatch('dasu.maheshika@gmail.com');
+  });
+
   test('render the login page with 1 button', async () => {
     render(
       <Provider store={store}>
@@ -33,16 +65,6 @@ describe('LoginPage', () => {
     const buttonCount = await screen.findAllByRole('button');
     expect(buttonCount).toHaveLength(1);
   });
-
-  // test('The button is disabled', () => {
-  //   render(
-  //     <Provider store={store}>
-  //       <LoginPage />
-  //     </Provider>
-  //   );
-  //   const buttonEl = screen.getByRole('button');
-  //   expect(buttonEl).toBeDisabled();
-  // });
 
   test('renders image in App component', () => {
     render(

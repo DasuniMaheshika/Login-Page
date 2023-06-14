@@ -32,8 +32,8 @@ const LoginPage = () => {
 
   const isValidEmail = (email) => {
     // Validate email format (simple validation for demonstration purposes)
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return validEmail.test(email);
   };
 
   const isValidPassword = (password) => {
