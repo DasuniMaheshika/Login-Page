@@ -43,16 +43,17 @@ const LoginPage = () => {
 
   return (
     <div data-testid='login-component'>
-      <h1>Login Page</h1>
-      <form onClick={handleSubmit}>
+      <form onClick={handleSubmit} id='main'>
+        <h1>Login Page</h1>
+
         <div class='imgcontainer'>
           <img
-            src='https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png'
+            src='https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg'
             alt='Avatar'
             class='avatar'
           />
         </div>
-        <div>
+        <div class='input-parent'>
           <label>Email:</label>
           <input
             type='email'
@@ -61,7 +62,7 @@ const LoginPage = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
+        <div class='input-parent'>
           <label>Password:</label>
           <input
             type='password'
