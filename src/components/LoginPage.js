@@ -43,17 +43,17 @@ const LoginPage = () => {
 
   return (
     <div data-testid='login-component'>
-      <form onClick={handleSubmit} id='main'>
+      <form id='main'>
         <h1>Login Page</h1>
 
-        <div class='imgcontainer'>
+        <div className='imgcontainer'>
           <img
             src='https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg'
             alt='Avatar'
-            class='avatar'
+            className='avatar'
           />
         </div>
-        <div class='input-parent'>
+        <div className='input-parent'>
           <label>Email:</label>
           <input
             type='email'
@@ -62,7 +62,7 @@ const LoginPage = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div class='input-parent'>
+        <div className='input-parent'>
           <label>Password:</label>
           <input
             type='password'
@@ -71,7 +71,9 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type='submit'>Login</button>
+        <button type='submit' onClick={handleSubmit}>
+          Login
+        </button>
       </form>
       {loggedIn && <p>Login success!</p>}
       {error && <p>{error}</p>}
