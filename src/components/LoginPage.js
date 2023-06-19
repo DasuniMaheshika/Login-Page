@@ -71,7 +71,7 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type='submit' onClick={handleSubmit}>
+        <button data-testid='login' type='submit' onClick={handleSubmit}>
           Login
         </button>
       </form>
